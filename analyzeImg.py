@@ -13,9 +13,9 @@ def capture():
     subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
     with open("../Documents/output.jpg", "rb") as img:
         encodedImg = base64.b64decode(img.read())
-    data = urllib.parse.urlencode({"image": encodedImg})
+    data = urllib.parse.urlencode({"image": encodedImg}).encode()
     req = urllib.request.Request(url, data, headers)
-    response = urllib.request.urlopen(bytes(req))
+    response = urllib.request.urlopen(req)
     output = response.read()
     print(output)
 
