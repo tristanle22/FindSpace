@@ -11,10 +11,8 @@ signal = False
 def capture():
     #subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
     #os.system('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
-    #p = os.popen('ffmpeg -i /dev/video0 -frames 1 ./output.jpg', "w")
-    #p.write("y\n")
-    p = Popen(["ffmpeg", "-i", "/dev/video0", "-frame", "./output.jpg"], shell=True, stdin=PIPE)
-    p.stdin.write("y/n")
+    p = os.popen('ffmpeg -i /dev/video0 -frames 1 ./output.jpg', "w")
+    p.write("y\n")
     image = open("output.jpg", "rb")
     resp = requests.post(url, headers=headers, data=image)
     output = resp.text
