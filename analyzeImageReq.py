@@ -7,6 +7,26 @@ import time
 import mraa
 from subprocess import Popen, PIPE
 import GPIOLibrary
+
+try:
+    Pin23 = GP.getPin23()
+    Pin23.out()
+
+    Pin24 = GP.getPin24()
+    Pin24.out()	
+
+    for i in range(0,20):
+        pinValue = Pin29.getValue()
+	
+	if pinValue == 1:
+	    Pin27.high()
+        else:
+            Pin27.low()
+        time.sleep(1)
+
+finally:
+    GP.cleanup()
+
 url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/0a95ed60-d8e4-4e5e-998a-787d8021e776/image?iterationId=dbb6c4cd-454f-4907-9dd3-9c14fbd02d92"
 headers = {"prediction-Key": 'f24c0306b1ac4e0784ac5566960105de', "Content-Type": "application/octet-stream"}
 print(mraa.getVersion())
@@ -48,4 +68,4 @@ def runCapture(n):
         controlLed(capture())
 
 
-runCapture(5);
+runCapture(5)
