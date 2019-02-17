@@ -11,10 +11,10 @@ headers = {"prediction-Key": '88724618479e49e4939ac9548e804782', "Content-Type":
 def capture():
     subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
     with open("output.jpg", "rb") as img:
-        encodedImg = base64.b64decode(img.read());
-    data = urllib.urlencode({"image": encodedImg})
-    req = urllib.Request(url, data, headers)
-    response = urllib.urlopen(req)
+        encodedImg = base64.b64decode(img.read())
+    data = urllib.parse.urlencode({"image": encodedImg})
+    req = urllib.request.Request(url, data, headers)
+    response = urllib.urlopen(bytes(req))
     output = response.read()
     print(output)
 
