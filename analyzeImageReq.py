@@ -11,7 +11,7 @@ def capture():
         encodedImg = base64.b64decode(img.read())
     imgData = {'file': encodedImg}
     req = requests.post(url, data=imgData, headers=headers)
-    output = req.text()
+    output = req.text
     print(output)
 
 
