@@ -9,8 +9,13 @@ headers = {"prediction-Key": '88724618479e49e4939ac9548e804782', "Content-Type":
 
 def capture():
     subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
-    img = open('../Documents/output.jpg', 'rb')
-    files = {'file': img}
+    files = {}
+    with open('../Documents/output.jpg', 'rb') as fin:
+        img = fin.read()
+    files['file'] = img
+
+    #img = open('../Documents/output.jpg', 'rb')
+    #files = {'file': img}
     req = urllib.request.Request(url, files, headers)
     response = urllib.request.urlopen(req)
     output = response.read()
