@@ -19,18 +19,15 @@ def capture():
 
 
 def parseJson(jsonData):
-    data = json.load(jsonData)
-    for confidenceVals in data:
-        if confidenceVals['probability'] >= .60:
-            print(confidenceVals['probability'])
+    data = json.loads(jsonData)
+    for i in data["predictions"]:
+        print(i['probability'])
+        if i['probability'] >= .60:
             return True
     return False
 
 def setSignalStatus(state):
-    if state==True:
-        signal = True
-    else:
-        signal = False
+    signal = state
 
 
 def runCapture():
