@@ -1,5 +1,5 @@
 import urllib
-import subprocess
+import subprocess import run
 
 url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/" \
       "0a95ed60-d8e4-4e5e-998a-787d8021e776/image?iterationId=8115342a-7571-4f99-bd30-35a2a93521a4"
