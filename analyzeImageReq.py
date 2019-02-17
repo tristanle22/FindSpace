@@ -31,7 +31,7 @@ def getParkingStatusFromJson(jsonData):
 
 
 def controlLed(isEmpty):
-    led = [mraa.Gpio(17), mraa.Gpio(27), mraa.Gpio(37)]
+    led = [mraa.Gpio(27), mraa.Gpio(37)]
     for x in led:
         x.dir(mraa.DIR_OUT)
         x.write(0)
