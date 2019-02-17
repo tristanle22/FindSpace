@@ -6,7 +6,7 @@ import threading
 import time
 import mraa
 from subprocess import Popen, PIPE
-import GPIOLibrary
+from . import GPIOLibrary
 
 try:
     Pin23 = GP.getPin23()
