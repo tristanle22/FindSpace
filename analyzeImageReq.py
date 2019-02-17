@@ -10,7 +10,7 @@ def capture():
     # with open("../Documents/output.jpg", "rb") as img:
     #     encodedImg = base64.b64decode(img.read())
 
-    imgData = {'file': open("output.jpg", "rb")}
+    imgData = {'file': open("../Documents/output.jpg", "rb")}
     req = requests.post(url, data=imgData, headers=headers)
     output = req.text
     print(output)
