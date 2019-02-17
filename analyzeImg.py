@@ -21,3 +21,17 @@ def capture():
 
 
 capture()
+"""
+Traceback (most recent call last):
+  File "analyzeImg.py", line 23, in <module>
+    capture()
+  File "analyzeImg.py", line 18, in capture
+    response = urllib.request.urlopen(req)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 453, in open
+    req = meth(req)
+  File "/usr/lib/python3.4/urllib/request.py", line 1104, in do_request_
+    raise TypeError(msg)
+TypeError: POST data should be bytes or an iterable of bytes. It cannot be of type str.
+"""
