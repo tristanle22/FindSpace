@@ -1,4 +1,4 @@
-import urllib
+import urllib.request
 import subprocess
 
 url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/" \
@@ -9,10 +9,10 @@ headers = {"prediction-Key": '88724618479e49e4939ac9548e804782', "Content-Type":
 
 def capture():
     subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
-    img = open('output.jpg', 'rb')
+    img = open('../Documents/output.jpg', 'rb')
     files = {'file': img}
-    req = urllib.Request(url, files, headers)
-    response = urllib.urlopen(req)
+    req = urllib.request.Request(url, files, headers)
+    response = urllib.request.urlopen(req)
     output = response.read()
     print(output)
 
