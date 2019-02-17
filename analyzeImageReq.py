@@ -15,12 +15,14 @@ def capture():
     resp = requests.post(url, headers=headers, data=image)
     output = resp.text
     setSignalStatus(parseJson(output))
+    print(signal)
 
 
 def parseJson(jsonData):
     data = json.load(jsonData)
     for confidenceVals in data:
         if confidenceVals['probability'] >= .60:
+            print(confidenceVals['probability'])
             return True
     return False
 
