@@ -1,4 +1,4 @@
-import urllib.request
+import urllib
 import threading
 import pygame
 import time
@@ -14,8 +14,8 @@ class detectParkingSpot():
         cam = self.startCamera()
         img = cam.get_image()
         files = {'file': open(img, 'rb')}
-        req = urllib.request.Request(self.url, files, self.headers)
-        response = urllib.request.urlopen(req)
+        req = urllib.Request(self.url, files, self.headers)
+        response = urllib.urlopen(req)
         output = response.read()
 
         print('output')
