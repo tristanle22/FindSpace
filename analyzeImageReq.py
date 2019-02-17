@@ -9,7 +9,7 @@ headers = {"prediction-Key": '88724618479e49e4939ac9548e804782', "Content-Type":
 def capture():
     #subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
     os.system('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
-    image = open("/output.jpg", "rb")
+    image = open("output.jpg", "rb")
     resp = requests.post(url, headers=headers, data=image)
     output = resp.text
     print(output)
