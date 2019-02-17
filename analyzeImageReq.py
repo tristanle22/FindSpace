@@ -18,8 +18,8 @@ try:
     for i in range(0,20):
         pinValue = Pin29.getValue()
 	
-	if pinValue == 1:
-	    Pin27.high()
+        if pinValue == 1:
+            Pin27.high()
         else:
             Pin27.low()
         time.sleep(1)
