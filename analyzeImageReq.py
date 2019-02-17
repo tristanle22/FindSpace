@@ -11,6 +11,7 @@ signal = False
 def capture():
     #subprocess.run('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
     os.system('ffmpeg -i /dev/video0 -frames 1 ./output.jpg')
+    os.system('y')
     image = open("output.jpg", "rb")
     resp = requests.post(url, headers=headers, data=image)
     output = resp.text
@@ -19,21 +20,19 @@ def capture():
     setSignalStatus(parseJson(output))
     print(signal)
 
-
 def parseJson(jsonData):
     data = json.loads(jsonData)
     for i in data['predictions']:
-	print(i['probability'])
+        print(i['probability'])
         if i['probability'] >= 0.20:
-		return True
+            return True
     return False
 
 def setSignalStatus(state):
-    signal = state
-
+    signal = statew
 
 def runCapture():
-    while True:
+    for i in range(0, 3):
         capture()
         threading.Timer(30, capture()).start()
 
